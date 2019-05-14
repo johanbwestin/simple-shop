@@ -1,0 +1,40 @@
+// Variables colors:
+$primary: black;
+// $column-gap: 2rem;
+
+@import 'bulma-0.7.4/bulma.sass';
+
+form {
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+}
+.input {
+  border-color: $primary;
+}
+
+.button {
+  margin-bottom: 10px;
+}
+
+a {
+  color: $primary;
+}
+
+.navbar {
+  margin: {
+    top:50px;
+    left: 25%;
+    right: 25%;
+    bottom: 50px;
+  }
+}
+
+.login {
+  margin-top: 60px;
+}
+
+.columns {
+  justify-content: center;
+}
