@@ -43,7 +43,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
+          <a class="button is-primary" href="register.php">
             <strong>Sign up</strong>
           </a>
           <form action="login.php" method="post">

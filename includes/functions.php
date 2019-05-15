@@ -1,4 +1,13 @@
 <?php
+function addToCart ($conn, $productId) {
+  $userId = $_SESSION['userid'];
+  $query = "INSERT INTO cart
+  (userId,productId)
+  VALUES($userId,$productId)";
+
+  $result = mysqli_query($conn,$query) or die("Query failed: $query");
+}
+
 function getProducts ($conn) {
   $query = "SELECT * FROM products";
   $result = mysqli_query($conn,$query) or die("Query failed: $query");
@@ -63,20 +72,12 @@ function checkLogin ($conn) {
     // Kontrollerar lösenordet, använder password_hash för att kontrollera hash mot databasen
     if (password_verify($password, $row["password"])) {
       $_SESSION['status'] = "ok";
+      $_SESSION['userid'] = $row["userId"];
       return true;
     } else {
       return false;
     }
-}
-
-  // if($checkUser == $user && $checkPass == $pass){
-  //   $_SESSION['status'] = "ok";
-  //   echo "<p>Du har loggat in, klicka på länken för att gå vidare!</p>";
-  //   echo '<p><a href="store.php">gå till hem</a></p>';
-  // } else{
-  //   echo "<p>Du har inte fyllt i rätt användare och lösenord</p>";
-  //   echo '<p><a href="index.php">Försök igen</a></p>';
-  // }
+  }
 }
 
 /*

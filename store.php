@@ -9,6 +9,10 @@ if(!isset($_SESSION['status'])){
 	exit;
 }
 
+if(isset($_POST['productId']) && $_POST['productId'] > 0){
+  addToCart($connection, $_POST['productId']);
+}
+
   $allProducts = getProducts($connection); 
   // $row = mysqli_fetch_assoc($allProducts);
 ?>
@@ -36,9 +40,10 @@ if(!isset($_SESSION['status'])){
             Phasellus nec iaculis mauris.
             <br>
             <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            <div class="button-box">
-              <a class="button is-primary" href="#">Add To Cart</a>
-            </div>
+            <form action="store.php" class="button-box" method="post">
+              <input type="hidden" name="productId" value="<?php echo $row['productId'] ?>">            
+              <input class="button is-primary" type="submit" name="addToCart" value="Add To Cart">
+            </form>
           </div>
         </div>
       </div>
