@@ -1,6 +1,6 @@
 // Variables colors:
 $primary: black;
-// $column-gap: 2rem;
+$column-gap: 2rem;
 
 @import 'bulma-0.7.4/bulma.sass';
 
@@ -37,4 +37,13 @@ a {
 
 .columns {
   justify-content: center;
+  align-self: center;
+  width: 80%;
+  margin: auto;
+}
+
+.button-box {
+  margin: {
+    top: 10px;
+  }
 }

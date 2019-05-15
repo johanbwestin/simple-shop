@@ -3,19 +3,17 @@
   require("includes/header.php"); 
   $login = 0;
   $isSubmit = 0;
+  if (isset($_POST['isLoggedOut']) && $_POST['isLoggedOut'] == 1) {
+    logOut ();
+  }
  	if(isset($_POST['issubmit']) && $_POST['issubmit'] == 1){
-     echo "hej";
 		$isSubmit = 1; // sätts till 1 om formulöret är skickat
     // // Här lägger man all kod
     $login = checkLogin($connection);
-	}
-	if($login){
-		if ($login) {
+    if($login == true){
       header("Location: store.php");
-		} else {
-			echo "Något gick fel";
-		}
-	} else {	
+    }
+	}
 ?>
 
 <body>
@@ -25,7 +23,6 @@
       <div class="box">
         <form action="login.php" method="post">
 		      <input type="hidden" name="issubmit" value="1">
-
           <h2>Login</h2>
           <div class="field">
             Username:
@@ -55,19 +52,8 @@
     </div>
   </div>
 </div>
-<!-- <div class="container has-text-centered">
-  <form action="checklogin.php" method="post">
-    <h1>Logga in</h1>
-    <label>Användare (e-post):</label>
-    <p><input type="email" name="txtUser"></p>
-    <label>Lösenord:</label>
-    <p><input type="password" name="txtPassword"></p>
-    <p><input class="button is-primary" type="submit" name="submit" value="logga in"></p>
-  </form>
-</div> -->
 </body>
 <?php
-  }
   dbDisconnect($connection)
 
 ?>

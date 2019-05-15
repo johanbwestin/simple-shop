@@ -1,4 +1,16 @@
 <?php
+function getProducts ($conn) {
+  $query = "SELECT * FROM products";
+  $result = mysqli_query($conn,$query) or die("Query failed: $query");
+
+  return $result;
+  // $row = mysqli_fetch_assoc($result);
+
+  // $count = mysqli_num_rows($result);
+
+
+}
+
 function register ($conn) {
   $userName = $_POST['userName'];
   $password = $_POST['password'];
@@ -27,8 +39,15 @@ function verifyPassword ($password, $hashedPassword) {
   return password_verify ($password , $hashedPassword);
 }
 
-function checkLogin ($conn) {
+function logOut () {
+  // Nollställer sessionsvariabeln
+  unset($_SESSION['status']);
 
+// Återställer hela sessionen och tömmer innehållet i alla sessionsvariabler
+  session_destroy();
+}
+
+function checkLogin ($conn) {
   $userName = mysqli_real_escape_string($conn,$_POST['userName']);
   $password = mysqli_real_escape_string($conn,$_POST['password']);
 

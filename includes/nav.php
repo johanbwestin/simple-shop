@@ -1,3 +1,5 @@
+
+
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
@@ -44,9 +46,10 @@
           <a class="button is-primary">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          <form action="login.php" method="post">
+		        <input type="hidden" name="isLoggedOut" value="1">            
+            <input class="button is-light" type="submit" name="logOut" value="Log Out">
+          </form>
         </div>
       </div>
     </div>

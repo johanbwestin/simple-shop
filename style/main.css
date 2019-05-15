@@ -8368,7 +8368,7 @@ label.panel-block:hover {
           flex-grow: 1;
   -ms-flex-negative: 1;
       flex-shrink: 1;
-  padding: 0.75rem;
+  padding: 2rem;
 }
 
 .columns.is-mobile > .column.is-narrow {
@@ -9834,17 +9834,17 @@ label.panel-block:hover {
 }
 
 .columns {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-  margin-top: -0.75rem;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  margin-top: -2rem;
 }
 
 .columns:last-child {
-  margin-bottom: -0.75rem;
+  margin-bottom: -2rem;
 }
 
 .columns:not(:last-child) {
-  margin-bottom: calc(1.5rem - 0.75rem);
+  margin-bottom: calc(1.5rem - 2rem);
 }
 
 .columns.is-centered {
@@ -11537,5 +11537,14 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 80%;
+  margin: auto;
+}
+
+.button-box {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=main.css.map */
