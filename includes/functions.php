@@ -1,11 +1,71 @@
 <?php
-function addToCart ($conn, $productId) {
+function deleteItem ($conn, $productId) {
   $userId = $_SESSION['userid'];
-  $query = "INSERT INTO cart
-  (userId,productId)
-  VALUES($userId,$productId)";
+  $query = "DELETE FROM cart WHERE userId= $userId AND productId= $productId";
 
   $result = mysqli_query($conn,$query) or die("Query failed: $query");
+}
+
+function addToCart ($conn, $productId, $quantity) {
+  $userId = $_SESSION['userid'];
+  $query = "INSERT INTO cart
+  (userId,productId,quantity)
+  VALUES($userId,$productId,$quantity)";
+
+  $result = mysqli_query($conn,$query) or die("Query failed: $query");
+}
+
+function countItem ($conn) {
+  $countItems = 0;
+  $_SESSION['orderCount'] = $countItems;
+  $order = getOrder($conn);
+  if (isset($_SESSION['status'])){
+
+    while ($row = mysqli_fetch_array($order)) {
+      $countItems += $row['quantity'];
+      $_SESSION['orderCount'] = $countItems;
+      // return $countItems;
+    }
+  }
+  // header("Refresh:0");
+  // $query = "SELECT COUNT(*) AS cartCount FROM cart
+  // WHERE cart.productId=".$productId;
+
+  // $result = mysqli_query($conn,$query) or die("Query failed: $query");
+  
+  // $row = mysqli_fetch_assoc($result);
+  // echo "Test" . $row['cartCount'];
+  // return $row['cartCount'];
+}
+
+function changeQuantity ($conn, $quantity, $productId) {
+  echo "test" . $productId . $quantity;
+  $userId = $_SESSION['userid'];
+  
+    $query = "UPDATE cart
+			SET quantity='$quantity'
+      WHERE userId=$userId AND productId=$productId";
+      
+      echo "SQL" . $query;
+
+    $result = mysqli_query($conn,$query) or die("Query failed: $query");
+}
+
+
+function getOrder ($conn) {
+  if (isset($_SESSION['status'])) {
+    $userId = $_SESSION['userid'];
+
+    
+    $query = "SELECT * FROM users 
+  INNER JOIN cart ON users.userId = cart.userId
+  INNER JOIN products ON products.productId = cart.productId
+  WHERE users.userId = $userId";
+
+$result = mysqli_query($conn,$query) or die("Query failed: $query");
+
+return $result;
+}
 }
 
 function getProducts ($conn) {
@@ -13,11 +73,6 @@ function getProducts ($conn) {
   $result = mysqli_query($conn,$query) or die("Query failed: $query");
 
   return $result;
-  // $row = mysqli_fetch_assoc($result);
-
-  // $count = mysqli_num_rows($result);
-
-
 }
 
 function register ($conn) {
@@ -84,9 +139,9 @@ function checkLogin ($conn) {
  * Skapar databaskopplingen
 */
 function dbConnect(){
-	$connection = mysqli_connect("localhost", "root", "", "system")
+	$connection = mysqli_connect("localhost", "root", "", "shop")
         or die("Could not connect");
-    mysqli_select_db($connection,"system") or die("Could not select database");
+    mysqli_select_db($connection,"shop") or die("Could not select database");
 	return $connection;
 }
 	

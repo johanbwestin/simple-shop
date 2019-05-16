@@ -10,7 +10,11 @@ if(!isset($_SESSION['status'])){
 }
 
 if(isset($_POST['productId']) && $_POST['productId'] > 0){
-  addToCart($connection, $_POST['productId']);
+
+  addToCart($connection, $_POST['productId'], $_POST['quantity']);
+  countItem ($connection);
+  header("Refresh:0");
+
 }
 
   $allProducts = getProducts($connection); 
@@ -43,6 +47,7 @@ if(isset($_POST['productId']) && $_POST['productId'] > 0){
             <form action="store.php" class="button-box" method="post">
               <input type="hidden" name="productId" value="<?php echo $row['productId'] ?>">            
               <input class="button is-primary" type="submit" name="addToCart" value="Add To Cart">
+              <input class="input quantity" name="quantity" type="number" value="1">
             </form>
           </div>
         </div>

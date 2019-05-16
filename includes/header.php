@@ -1,6 +1,5 @@
 <?php
-  session_start();
-?>
+  session_start();?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -16,4 +15,5 @@
     require("includes/functions.php");
     
     $connection = dbConnect();
-?>
+    countItem ($connection);
+    ?>

@@ -1,4 +1,6 @@
-
+<?php
+  
+?>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -16,15 +18,25 @@
       <a class="navbar-item">
         Home
       </a>
-      <a class="navbar-item">
-        Documentation
+      <a href="store.php" class="navbar-item">
+        Shop
       </a>
       
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
+          <?php if(isset($_SESSION['status'])) {?>
+          <div class="cart">
+          <a href="cart.php">
+            <?php echo $_SESSION['orderCount']?><i class="fas fa-shopping-cart"></i>
+          </a>
+          </div>
+          <?php }?>
           <a class="button is-primary" href="register.php">
+            <span class="icon is-small is-left">
+            <i class="fas fa-user-plus"></i>
+            </span>
             <strong>Sign up</strong>
           </a>
           <form action="login.php" method="post">
