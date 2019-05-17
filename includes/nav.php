@@ -1,10 +1,6 @@
-<?php
-  
-?>
-
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <a class="navbar-item" href="login.php">
       <img src="https://cdn.discordapp.com/attachments/443818380659654677/578274482309955585/shoe.png" width="70" height="28">
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -21,7 +17,6 @@
       <a href="store.php" class="navbar-item">
         Shop
       </a>
-      
     </div>
     <div class="navbar-end">
       <div class="navbar-item">

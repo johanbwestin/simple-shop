@@ -1,6 +1,8 @@
 // Variables colors:
 $primary: black;
 $column-gap: 2rem;
+$secondary: #FFFFE0;
+$info: #FFFFE0;
 
 @import 'bulma-0.7.4/bulma.sass';
 
@@ -12,6 +14,14 @@ form {
   .quantity {
     width: 3rem;
   }
+}
+
+.footer {
+  background-color: $secondary;
+}
+
+.allButFooter {
+  min-height: calc(100vh - 40px);
 }
 
 .input {
@@ -26,12 +36,26 @@ a {
   color: $primary;
 }
 
-.nav{
-  
+.hero {
+  background: {
+    image: url(https://i.pinimg.com/originals/d2/d6/3e/d2d63ec0a41b9aa94b0dc195204f99a5.jpg);
+    size: contain;
+    repeat: no-repeat;
+    position: center;
+  }
+  width: 100%;
+  margin: auto;
+}
+
+.hero{
+  padding: {
+    top: 3rem;
+    bottom: 3rem;
+  }
 }
 
 .navbar {
-  background-color: #FFFFE0;
+  background-color: $secondary;
   padding: {
     top:50px;
     left: 25%;

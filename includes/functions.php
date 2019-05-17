@@ -20,34 +20,19 @@ function countItem ($conn) {
   $_SESSION['orderCount'] = $countItems;
   $order = getOrder($conn);
   if (isset($_SESSION['status'])){
-
     while ($row = mysqli_fetch_array($order)) {
       $countItems += $row['quantity'];
       $_SESSION['orderCount'] = $countItems;
-      // return $countItems;
     }
   }
-  // header("Refresh:0");
-  // $query = "SELECT COUNT(*) AS cartCount FROM cart
-  // WHERE cart.productId=".$productId;
-
-  // $result = mysqli_query($conn,$query) or die("Query failed: $query");
-  
-  // $row = mysqli_fetch_assoc($result);
-  // echo "Test" . $row['cartCount'];
-  // return $row['cartCount'];
 }
 
 function changeQuantity ($conn, $quantity, $productId) {
-  echo "test" . $productId . $quantity;
   $userId = $_SESSION['userid'];
-  
     $query = "UPDATE cart
 			SET quantity='$quantity'
       WHERE userId=$userId AND productId=$productId";
       
-      echo "SQL" . $query;
-
     $result = mysqli_query($conn,$query) or die("Query failed: $query");
 }
 
@@ -55,17 +40,15 @@ function changeQuantity ($conn, $quantity, $productId) {
 function getOrder ($conn) {
   if (isset($_SESSION['status'])) {
     $userId = $_SESSION['userid'];
-
-    
     $query = "SELECT * FROM users 
   INNER JOIN cart ON users.userId = cart.userId
   INNER JOIN products ON products.productId = cart.productId
   WHERE users.userId = $userId";
 
-$result = mysqli_query($conn,$query) or die("Query failed: $query");
+  $result = mysqli_query($conn,$query) or die("Query failed: $query");
 
-return $result;
-}
+  return $result;
+  }
 }
 
 function getProducts ($conn) {
@@ -81,7 +64,6 @@ function register ($conn) {
   $email = $_POST['email'];
   $firstName = $_POST['firstName'];
   $lastName = $_POST['lastName'];
-
   $passwordHash = encryptPassword ($password);
 
   $query = "INSERT INTO users
@@ -89,10 +71,9 @@ function register ($conn) {
   VALUES('$userName','$passwordHash','$email','$firstName','$lastName')";
 
   $result = mysqli_query($conn,$query) or die("Query failed: $query");
-
   $insId = mysqli_insert_id($conn);
 
-return $insId;
+  return $insId;
 }
 
 function encryptPassword ($password) {
@@ -107,7 +88,7 @@ function logOut () {
   // Nollställer sessionsvariabeln
   unset($_SESSION['status']);
 
-// Återställer hela sessionen och tömmer innehållet i alla sessionsvariabler
+  // Återställer hela sessionen och tömmer innehållet i alla sessionsvariabler
   session_destroy();
 }
 
@@ -118,9 +99,7 @@ function checkLogin ($conn) {
   $query = "SELECT * FROM users
     WHERE userName = '$userName'";
   $result = mysqli_query($conn,$query) or die("Query failed: $query");
-
   $row = mysqli_fetch_assoc($result);
-
   $count = mysqli_num_rows($result);
 
   if($count == 1) {

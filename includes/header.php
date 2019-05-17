@@ -17,3 +17,5 @@
     $connection = dbConnect();
     countItem ($connection);
     ?>
+<html>
+  <body>

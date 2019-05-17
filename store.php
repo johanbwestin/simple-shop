@@ -1,8 +1,6 @@
 
 <?php 
   require("includes/header.php");
-
-
   // Kontrollerar Adminbehörighet
 if(!isset($_SESSION['status'])){
 	header("Location: login.php");
@@ -10,18 +8,13 @@ if(!isset($_SESSION['status'])){
 }
 
 if(isset($_POST['productId']) && $_POST['productId'] > 0){
-
   addToCart($connection, $_POST['productId'], $_POST['quantity']);
   countItem ($connection);
   header("Refresh:0");
-
 }
 
-  $allProducts = getProducts($connection); 
-  // $row = mysqli_fetch_assoc($allProducts);
+$allProducts = getProducts($connection); 
 ?>
-<html>
-  <body>
   <div class="columns is-multiline">
     <?php 
       while ($row = mysqli_fetch_array($allProducts)) {
@@ -57,5 +50,6 @@ if(isset($_POST['productId']) && $_POST['productId'] > 0){
   }
   ?>
   </div>
-  </body>
-</html>
+  <?php
+        require('includes/footer.php')
+  ?>
