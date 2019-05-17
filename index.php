@@ -12,7 +12,6 @@
                             Coming Soon
                         </h1>
                         <h2 class="subtitle">
-                            
                         </h2>
                         <a class="button is-centered is-primary is-outlined" href="store.php">
                             See Our Shop
