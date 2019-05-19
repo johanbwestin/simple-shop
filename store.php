@@ -29,8 +29,9 @@ $allProducts = getProducts($connection);
         </div>
         <div class="card-content">
           <div class="media">
-            <div class="media-content">
-              <p class="title is-4"><?php echo $Footwear->getBrandName() . "<br>" . $Footwear->getModel();  ?></p>
+            <div class="">
+              <div id="cartTitle" class="title is-4"><?php echo $Footwear->getBrandName(); ?></div>
+              <p class="title is-5"><?php echo $Footwear->getModel();  ?></p>
             </div>
           </div>
           <div class="content">
