@@ -18,25 +18,26 @@ $allProducts = getProducts($connection);
   <div class="columns is-multiline">
     <?php 
       while ($row = mysqli_fetch_array($allProducts)) {
+        $Footwear = new Footwear($row['productBrand'], $row['productModel'], $row['productDescription'], $row['productPrice'], $row['productMaterial']);        
     ?>
     <div class="column is-4">
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">
-            <img src="<?php echo $row['pictureUrl'] ?>" alt="<?php echo $row['productName'] ?>">
+            <img src="<?php echo $row['pictureUrl'] ?>" alt="<?php echo $Footwear->getBrandName(); ?>">
           </figure>
         </div>
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4"><?php echo $row['productName'] ?></p>
+              <p class="title is-4"><?php echo $Footwear->getBrandName() . "<br>" . $Footwear->getModel();  ?></p>
             </div>
           </div>
           <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.
+            <strong>Material: </strong><?php echo $Footwear->getMaterial() . "."; ?> <br>
+            <strong>Description: </strong><?php echo $Footwear->getDescription(); ?>
             <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            <div><strong>Price:</strong> <?php echo $Footwear->getPrice() . "$"; ?></div>
             <form action="store.php" class="button-box" method="post">
               <input type="hidden" name="productId" value="<?php echo $row['productId'] ?>">            
               <input class="button is-primary" type="submit" name="addToCart" value="Add To Cart">

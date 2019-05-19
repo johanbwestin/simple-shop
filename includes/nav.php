@@ -1,6 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="login.php">
+    <a class="navbar-item" href="index.php">
       <img src="https://cdn.discordapp.com/attachments/443818380659654677/578274482309955585/shoe.png" width="70" height="28">
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -11,7 +11,7 @@
   </div>
 <div class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a href="index.php" class="navbar-item">
         Home
       </a>
       <a href="store.php" class="navbar-item">

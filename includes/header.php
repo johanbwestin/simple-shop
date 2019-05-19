@@ -13,6 +13,8 @@
 <?php 
     require("includes/nav.php"); 
     require("includes/functions.php");
+    require 'Products.php';
+    require 'Footwear.php';
     
     $connection = dbConnect();
     countItem ($connection);

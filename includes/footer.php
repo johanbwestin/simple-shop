@@ -24,7 +24,7 @@
           <h2><strong>About</strong></h2>
           <ul>
             <li><a href="#">Who are we?</a></li>
-            <li><a href="#">Services for bigger businesses</a></li>
+            <li><a href="#">Brands</a></li>
             <li><a href="#">Employees</a></li>
             <li><a href="#">History</a></li>
           </ul>
@@ -33,7 +33,7 @@
 <br>
             <div class="columns">
         <div class="column has-text-centered is-full">
-        <h2>© 2019 Foresight Bank</h2>
+        <h2>© 2019 Simple Shop</h2>
       </div>
     </div>
     </div>

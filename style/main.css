@@ -11505,6 +11505,10 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 
+#title {
+  color: white;
+}
+
 form h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;

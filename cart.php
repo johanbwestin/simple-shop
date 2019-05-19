@@ -22,13 +22,15 @@
   </div>
     <?php
   while ($row = mysqli_fetch_array($order)) {
-    countItem($connection)
+    $Footwear = new Footwear($row['productBrand'], $row['productModel'], $row['productDescription'], $row['productPrice'], $row['productMaterial']);        
+
+    countItem($connection);
     ?>
   <div class="field">
     <div class="container is-fluid">
     <div class="notification columns">
       <div class="column headerBox">
-        <strong>Item</strong>: <?php echo $row['productName']?>
+        <strong>Item</strong>: <?php echo $Footwear->getBrandName() . " " . $Footwear->getModel();?>
       </div>
       <form class="column" action="cart.php" method="post">
         <strong>Quantity</strong>: 
