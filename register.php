@@ -1,5 +1,3 @@
-
-
 <?php 
   require("includes/header.php"); 
   $isRegister = 0;
@@ -71,7 +69,7 @@
             </div>
           </div>
           <input class="button is-large is-fullwidth is-primary" type="submit" name="register" value="Register">
-          </form>
+        </form>
       </div>
       <p class="has-text-centered loginoptions">
         <a href="../">Forgot Password</a> &nbsp;·&nbsp;

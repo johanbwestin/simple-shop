@@ -42,8 +42,8 @@
               </span>
             </div>
           </div>
-            <input class="button is-large is-fullwidth is-primary" type="submit" name="login" value="Login">
-          </form>
+          <input class="button is-large is-fullwidth is-primary" type="submit" name="login" value="Login">
+        </form>
       </div>
       <p class="has-text-centered loginoptions">
         <a href="../">Forgot Password</a> &nbsp;·&nbsp;

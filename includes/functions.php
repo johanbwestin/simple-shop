@@ -41,13 +41,13 @@ function getOrder ($conn) {
   if (isset($_SESSION['status'])) {
     $userId = $_SESSION['userid'];
     $query = "SELECT * FROM users 
-  INNER JOIN cart ON users.userId = cart.userId
-  INNER JOIN products ON products.productId = cart.productId
-  WHERE users.userId = $userId";
+    INNER JOIN cart ON users.userId = cart.userId
+    INNER JOIN products ON products.productId = cart.productId
+    WHERE users.userId = $userId";
 
-  $result = mysqli_query($conn,$query) or die("Query failed: $query");
+    $result = mysqli_query($conn,$query) or die("Query failed: $query");
 
-  return $result;
+    return $result;
   }
 }
 
@@ -125,8 +125,9 @@ function dbConnect(){
 }
 	
 /*
-* stänger databaskopplingen
+ * stänger databaskopplingen
 */
+
 function dbDisconnect($connection){
 	mysqli_close($connection);
 }
