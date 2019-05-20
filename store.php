@@ -15,6 +15,7 @@ if(isset($_POST['productId']) && $_POST['productId'] > 0){
 
 $allProducts = getProducts($connection); 
 ?>
+  <div class="title has-text-centered" style="margin-top: 2rem;">Shop</div>
   <div class="columns is-multiline">
     <?php 
       while ($row = mysqli_fetch_array($allProducts)) {
